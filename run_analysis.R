@@ -1,5 +1,5 @@
-# Obtaining Data Course Project
-# Script - getting the data
+# Getting and Cleaning Data Course Project
+# RPrice 05.24.2014 
 # Data info:
 # http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
@@ -43,7 +43,6 @@ mean.std.dataset$activity <- factor(mean.std.dataset$activity,labels=activity.la
 # Appropriately labels the data set with descriptive activity names.
 # take a look at the current names
 names(mean.std.dataset)
-
 # lets replace all '-' with a '.'
 names(mean.std.dataset) <- gsub("\\-","",names(mean.std.dataset),)
 # replace all the beginning 't' and 'f' with time and freq
@@ -70,5 +69,9 @@ library(reshape2)
 melted <- melt(mean.std.dataset, id=c('subject.id','activity'))
 casted <- dcast(melted, subject.id + activity ~ variable, fun.aggregate=mean)
 # modify variable names to reflect that these are now averaged values
-newnames<-lapply(names(casted)[3:ncol(casted)],paste,".averaged")
-unlist(newnames)
+new.names<-lapply(names(casted)[3:ncol(casted)],paste,".averaged", sep="")
+names(casted)[3:ncol(casted)] <- unlist(new.names)
+
+# finally...
+# save the small tidy dataset for evaluation
+write.table(casted, file="tidy_data.txt")
