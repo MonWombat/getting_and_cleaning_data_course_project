@@ -10,7 +10,7 @@ Samsung Galaxy S smartphone for the purpose of activity recognition. A full desc
 Included in this repo are:
 
 * run_analysis.R - the main script from producing the tidy data set
-* codebook.md - descibes the variables in the tidy data set and transformations used to obtain them
+* codebook.md - descibes the original dataset, the variables in the tidy data set and transformations used to obtain them
 * tidy_data.txt (not required but here in case of online submission problems)
 
 ### run_analysis.R
