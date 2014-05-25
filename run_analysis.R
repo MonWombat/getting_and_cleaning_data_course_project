@@ -41,6 +41,7 @@ mean.std.dataset$activity <- factor(mean.std.dataset$activity,labels=activity.la
 
 # part 4 says:
 # Appropriately labels the data set with descriptive activity names.
+#
 # take a look at the current names
 names(mean.std.dataset)
 # lets replace all '-' with a '.'
